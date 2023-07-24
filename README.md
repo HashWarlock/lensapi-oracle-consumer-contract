@@ -1,4 +1,4 @@
-# Polygon Client dApp for LensAPI Oracle
+# Polygon Consumer Contract for LensAPI Oracle
 
 The contracts are copied and revised from <https://github.com/Phala-Network/phat-offchain-rollup/tree/main/evm> (commit: [7dc2f9bc8917f84c2a855a2df2a2373897dd1b1f](https://github.com/Phala-Network/phat-offchain-rollup/commit/7dc2f9bc8917f84c2a855a2df2a2373897dd1b1f)).
 
