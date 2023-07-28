@@ -6,17 +6,14 @@ async function main() {
 
   const [deployer] = await ethers.getSigners();
 
-  const clientSC = process.env['POLYGON_MAINNET_CLIENT_SC' ?? '0xd92D942347134C10afb797D63B70534771f20034']; // use POLYGON_MAINNET_CLIENT_SC for mainnet and POLYGON_MUMBAI_CLIENT_SC for mumbai testnet
-  if (!clientSC) {
-    return console.error('Client Smart Contract address not defined');
-  }
+  const clientSC = process.env['POLYGON_MAINNET_CLIENT_SC'] ?? '0xbb0d733bdbe151dae3cef8d7d63cbf74ccbf04c4'; // use POLYGON_MAINNET_CLIENT_SC for mainnet and POLYGON_MUMBAI_CLIENT_SC for mumbai testnet
   const oracle = await TestLensOracle.attach(clientSC); // change this to your client smart contract address
   await Promise.all([
     oracle.deployed(),
   ])
 
   console.log('Pushing a request...');
-  await oracle.connect(deployer).request("0x01");
+  await oracle.connect(deployer).request("0x8221");
   console.log('Done');
 }
 

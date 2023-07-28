@@ -13,15 +13,17 @@ First you will need to run `cp .env.local .env` to copy over the local environme
 - `LENSAPI_ORACLE_ENDPOINT` - LensAPI Oracle Endpoint Address that can be found in a deployed LensAPI Oracle Blueprint at [Phala Mainnet](https://bricks.phala.network) or [Phala PoC5 Testnet](https://bricks-poc5.phala.network)
 
 Try running some of the following tasks:
-
+### Install Dependencies & Compile Contracts
 ```shell
 # install dependencies
 yarn
 
 # compile contracts
 npx hardhat compile
-
-# deploy contracts
+```
+### Deploy to Polygon Mumbai Testnet
+```shell
+# deploy contracts to testnet mumbai
 npx hardhat run --network mumbai ./scripts/deploy-test.ts
 # Deployed { receiver: '0x93891cb936B62806300aC687e12d112813b483C1' }
 
@@ -29,4 +31,25 @@ npx hardhat run --network mumbai ./scripts/deploy-test.ts
 
 # Optional: verify contract
 npx hardhat verify --network mumbai --constructor-args arguments.js 0x93891cb936B62806300aC687e12d112813b483C1
+```
+### Deploy to Polygon Mainnet
+```shell
+# deploy contracts to polygon mainnet
+npx hardhat run --network polygon ./scripts/deploy-test.ts
+Deploying...
+Deployed { oracle: '0xbb0d733BDBe151dae3cEf8D7D63cBF74cCbf04C4' }
+Configuring...
+Done
+
+# Check our example deployment in <https://polygonscan.com/address/0xbb0d733BDBe151dae3cEf8D7D63cBF74cCbf04C4>
+
+# Optional: verify contract
+npx hardhat verify --network polygon --constructor-args arguments.js 0xbb0d733BDBe151dae3cEf8D7D63cBF74cCbf04C4
+```
+
+### Push New Request to Polygon Mainnet
+```shell
+npx hardhat run --network polygon ./scripts/push-request.ts
+Pushing a request...
+Done
 ```
